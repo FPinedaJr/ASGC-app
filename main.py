@@ -81,4 +81,24 @@ def assign_letter_grade(weighted_average: float) -> str:
     elif weighted_average < 0: 
         print("Invalid Grade")
 
-    return average 
+    return average
+
+def display_student_report(student_name: str, assignment_scores: list, quiz_scores: list, final_exam_score: list, weighted_average: float, letter_grade: str):
+    student_report = { 
+        "name": student_name,
+        "assignment": assignment_scores, 
+        "quiz": quiz_scores, 
+        "final_exam": final_exam_score,
+        "weighted_average": weighted_average, 
+        "letter_grade": letter_grade, 
+    }
+
+    print("Name: " + student_report["name"])
+    print("\n<<<<< SCORES >>>>> ")
+    for i in range(len(student_report["assignment"])):
+        print(f'assignment #{i+1} - {student_report["assignment"][i]}')
+    for i in range(len(student_report["quiz"])):
+        print(f'quiz #{i+1} - {student_report["quiz"][i]}')
+    print("Final Exam: " + student_report["final_exam"][0])
+    print("\nWeighted Average: " + str(student_report["weighted_average"]))
+    print("Letter grade: " + student_report["letter_grade"])
