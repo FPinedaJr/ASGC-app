@@ -51,7 +51,10 @@ def compute_weighted_average(assignment_scores: list, quiz_scores: list, final_e
     return rounded_overall_grade
 
 def assign_letter_grade(weighted_average: float) -> str: 
-    if weighted_average >= 90:
+    if weighted_average > 100: 
+        print("error invalid grade: grade > 100")
+
+    elif weighted_average >= 90:
         average = 'A'
 
     elif weighted_average >= 80: 
@@ -65,5 +68,8 @@ def assign_letter_grade(weighted_average: float) -> str:
 
     elif weighted_average >= 0:
         average = 'F'
+
+    elif weighted_average < 0: 
+        print("error invalid grade: grade < 0")
 
     return average 
