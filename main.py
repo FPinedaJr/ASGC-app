@@ -1,3 +1,19 @@
+def sum_scores(scores: list) -> float:
+    sum_of_your_score = 0
+    sum_of_total_score = 0
+    for score in scores:
+        score = str(score)
+
+        your_score, total_score = score.split("/")
+
+        sum_of_your_score += int(your_score)
+        sum_of_total_score += int(total_score)
+
+    total_score = sum_of_your_score / sum_of_total_score
+    return total_score
+
+
+
 def compute_weighted_average(assignment_scores, quiz_scores, final_exam_score):
     assignment_weight = 30
     quiz_weight = 30
