@@ -49,3 +49,21 @@ def compute_weighted_average(assignment_scores: list, quiz_scores: list, final_e
     overall_grade = assignment_grade + quiz_grade + final_exam_grade
     rounded_overall_grade = round(overall_grade, 2)
     return rounded_overall_grade
+
+def assign_letter_grade(weighted_average: float) -> str: 
+    if weighted_average >= 90:
+        average = 'A'
+
+    elif weighted_average >= 80: 
+        average = 'B'
+
+    elif weighted_average >= 70: 
+        average = 'C'
+
+    elif weighted_average >= 60:
+        average = 'D'
+
+    elif weighted_average >= 0:
+        average = 'F'
+
+    return average 
