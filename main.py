@@ -1,4 +1,13 @@
 def sum_scores(scores: list) -> float:
+    """
+    Sums a list that contains scores with string elements e.g. ["8/10", "29/30", "30/40", "100/100"]
+
+    Args:
+        scores - list of scores [list]
+
+    Return
+        the sum of the scores [float]
+    """
     sum_of_your_score = 0
     sum_of_total_score = 0
     for score in scores:
@@ -12,9 +21,18 @@ def sum_scores(scores: list) -> float:
     total_score = sum_of_your_score / sum_of_total_score
     return total_score
 
-
-
 def compute_weighted_average(assignment_scores: list, quiz_scores: list, final_exam_score: list) -> float:
+    """
+    Computes the weighted average
+
+    Args:
+        assignment_scores - list of assignment scores [list]
+        quiz_scores - list of quiz scores [list]
+        final_exam_score - list of final_exam scores [list]
+
+    Return
+        the calculated wighted average [float]
+    """
     assignment_weight = 30
     quiz_weight = 30
     final_exam_weight = 40
@@ -31,4 +49,3 @@ def compute_weighted_average(assignment_scores: list, quiz_scores: list, final_e
     overall_grade = assignment_grade + quiz_grade + final_exam_grade
     rounded_overall_grade = round(overall_grade, 2)
     return rounded_overall_grade
-
