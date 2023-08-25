@@ -116,3 +116,23 @@ def display_student_report(student_name: str, assignment_scores: list, quiz_scor
     print("Final Exam: " + student_report["final_exam"][0])
     print("\nWeighted Average: " + str(student_report["weighted_average"]))
     print("Letter grade: " + student_report["letter_grade"])
+
+
+def main():
+    name_input = input("Enter name: ")
+    print("\nEnter scores seperated by commas (e.g. 10/15, 18/20, 30/30)")
+    assignment_scores_input = input("Assignment Scores:  ").split(',') 
+    quiz_scores_input = input("Quiz Scores: ").split(',') 
+    final_exam_score_input =  input("Final Exam (e.g. 50/60): ").split(',')
+ 
+
+    weighted_average = compute_weighted_average(assignment_scores_input, quiz_scores_input, final_exam_score_input)
+    letter_grade = assign_letter_grade(weighted_average)
+
+    print("\n---------------------------------------------------------")
+    display_student_report(name_input, assignment_scores_input, quiz_scores_input, final_exam_score_input, weighted_average, letter_grade)
+    print(f"\n\nYou have a weighted average of {weighted_average} which is {letter_grade}.")
+    print("---------------------------------------------------------")
+
+if __name__ == "__main__":
+    main()
