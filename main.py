@@ -84,6 +84,20 @@ def assign_letter_grade(weighted_average: float) -> str:
     return average
 
 def display_student_report(student_name: str, assignment_scores: list, quiz_scores: list, final_exam_score: list, weighted_average: float, letter_grade: str):
+    """
+    Displays a student's name, score for each assignment and quiz, final exam score, weighted average, and letter grade
+
+    Args:
+        student_name - [float]
+        assignment_scores - [list]
+        quiz_scores - [list]
+        final_exam_score - [list]
+        weighted_average - [float]
+        letter_grade - [str]
+
+    Return
+       none
+    """
     student_report = { 
         "name": student_name,
         "assignment": assignment_scores, 
