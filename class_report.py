@@ -16,3 +16,15 @@ def get_scores():
     
     return students
 
+
+
+
+def convert_scores_to_int(students):
+    for j in range(5):
+        for i in range(len(students[f"student_{j+1}"]["assignments"])):
+            students[f"student_{j+1}"]["assignments"][i] = int(students[f"student_{j+1}"]["assignments"][i])
+
+        for i in range(len(students[f"student_{j+1}"]["quizzes"])):
+            students[f"student_{j+1}"]["quizzes"][i] = int(students[f"student_{j+1}"]["quizzes"][i])
+
+    return students
