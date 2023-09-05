@@ -28,3 +28,22 @@ def convert_scores_to_int(students):
             students[f"student_{j+1}"]["quizzes"][i] = int(students[f"student_{j+1}"]["quizzes"][i])
 
     return students
+
+
+
+def seperate_assignments(students):
+    assignments = {
+        "assignment_1": [],
+        "assignment_2": [],
+        "assignment_3": [],
+        "assignment_4": [],
+        "assignment_5": [],
+        "assignment_6": [],
+        "assignment_7": []
+    }
+
+    for j in range(5):
+        for i in range(len(students[f"student_{j+1}"]["assignments"])):
+            assignments[f"assignment_{i+1}"].append(students[f"student_{j+1}"]["assignments"][i])
+    
+    return assignments
