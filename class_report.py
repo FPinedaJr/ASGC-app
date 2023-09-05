@@ -91,3 +91,9 @@ def display_min_max(arr):
             max = arr [i]
         elif arr [i] < min: 
             min = arr [i]
+
+    print("     lowest score: ", min)
+    print("     highest score: ", max)
+
+
+    
