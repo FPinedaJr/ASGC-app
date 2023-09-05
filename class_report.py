@@ -1,4 +1,13 @@
 def get_scores(num_of_students: int) -> dict:
+    """
+    Take the ASSIGNMENT, QUIZ, FINAL EXAM of students 
+
+    Args:
+        number of students [int]
+
+    Return
+        students record [dict]
+    """
     print("-----PLEASE SEPERATE BY A COMMA-----")
     students = {}
     for i in range(num_of_students):
