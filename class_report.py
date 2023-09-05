@@ -25,6 +25,15 @@ def get_scores(num_of_students: int) -> dict:
 
 
 def convert_scores_to_int(students: dict) -> dict:
+    """
+    Convert the scores of the students to integer
+
+    Args:
+        students [dict] -> str
+
+    Return
+        students [dict] -> int
+    """
     num_of_students = len(students)
     for j in range(num_of_students):
         for i in range(len(students[f"student_{j+1}"]["assignments"])):
