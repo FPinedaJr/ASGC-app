@@ -1,17 +1,13 @@
-def get_scores():
+def get_scores(num_of_students: int) -> dict:
+    print("-----PLEASE SEPERATE BY A COMMA-----")
+    students = {}
+    for i in range(num_of_students):
+        students[f"student_{i+1}"] = {}
 
-    students = {
-        "student_1": {},
-        "student_2": {},
-        "student_3": {},
-        "student_4": {},
-        "student_5": {},
-    }
-
-    for i in range(5):
-        students[f"student_{i+1}"]["assignments"] = input(f"Enter the assignment of student {i+1}: ").split(',')
-        students[f"student_{i+1}"]["quizzes"] = input(f"Enter the quizzes of student {i+1}: ").split(',')
-        students[f"student_{i+1}"]["final_exam"] = int(input(f"Enter final exam of student {i+1}: "))
+    for i in range(num_of_students):
+        students[f"student_{i+1}"]["assignments"] = input(f"ASSIGNMENT score of student {i+1}: ").split(',')
+        students[f"student_{i+1}"]["quizzes"] = input(f"      QUIZ score of student {i+1}: ").split(',')
+        students[f"student_{i+1}"]["final_exam"] = int(input(f"FINAL EXAM score of student {i+1}: "))
         print("\n")
     
     return students
@@ -19,8 +15,9 @@ def get_scores():
 
 
 
-def convert_scores_to_int(students):
-    for j in range(5):
+def convert_scores_to_int(students: dict) -> dict:
+    num_of_students = len(students)
+    for j in range(num_of_students):
         for i in range(len(students[f"student_{j+1}"]["assignments"])):
             students[f"student_{j+1}"]["assignments"][i] = int(students[f"student_{j+1}"]["assignments"][i])
 
@@ -31,42 +28,25 @@ def convert_scores_to_int(students):
 
 
 
-def seperate_assignments(students):
-    assignments = {
-        "assignment_1": [],
-        "assignment_2": [],
-        "assignment_3": [],
-        "assignment_4": [],
-        "assignment_5": [],
-        "assignment_6": [],
-        "assignment_7": []
-    }
 
-    for j in range(5):
-        for i in range(len(students[f"student_{j+1}"]["assignments"])):
-            assignments[f"assignment_{i+1}"].append(students[f"student_{j+1}"]["assignments"][i])
+def seperate_scores(students: dict, type: str) -> dict:
+    num_of_scores = len(students[f"student_1"][type])
+    num_of_students = len(students)
+
+    scores = {}
+    for i in range(num_of_scores):
+        scores[f"score_{i+1}"] = []
+
+    for j in range(num_of_students):
+        for i in range(len(students[f"student_{j+1}"][type])):
+            scores[f"score_{i+1}"].append(students[f"student_{j+1}"][type][i])
     
-    return assignments
-
-
-def seperate_quizzes(students):
-    quizzes = {
-        "quizzes_1": [],
-        "quizzes_2": [],
-        "quizzes_3": [],
-        "quizzes_4": [],
-        "quizzes_5": [],
-    }
-
-    for j in range(5):
-        for i in range(len(students[f"student_{j+1}"]["quizzes"])):
-            quizzes[f"quizzes_{i+1}"].append(students[f"student_{j+1}"]["quizzes"][i])
-    
-    return quizzes
+    return scores
 
 
 
-def compile_final_exam(students):
+
+def compile_final_exam(students: dict) -> list:
     final_exam = []
 
     for i in range(len(students)):
@@ -75,48 +55,61 @@ def compile_final_exam(students):
     return final_exam
 
 
-def display_average(arr): 
+
+
+def display_average(scores: list): 
     sum_of_list = 0 
-    for i in range(len(arr)): 
-        sum_of_list += arr[i]
-    average_student = sum_of_list/len(arr)
-    print("     class average : ", round(average_student, 2))
+    for i in range(len(scores)): 
+        sum_of_list += scores[i]
+    average_student = sum_of_list/len(scores)
+    print("     class average: ", round(average_student, 2))
 
 
-def display_min_max(arr):
-    min = arr [0]
-    max = arr [0]
-    for i in range(len(arr)): 
-        if arr[i] > max: 
-            max = arr [i]
-        elif arr [i] < min: 
-            min = arr [i]
 
-    print("     lowest score: ", min)
+
+def display_min_max(scores: list):
+    min = scores[0]
+    max = scores[0]
+    for i in range(len(scores)): 
+        if scores[i] > max: 
+            max = scores [i]
+        elif scores [i] < min: 
+            min = scores [i]
+
+    print("     lowest score:  ", min)
     print("     highest score: ", max)
 
 
+
+
 def main():
-    students_rec = get_scores()
+    students_num_input = int(input("Enter the number of students: "))
+    students_rec = get_scores(students_num_input)
     students_rec = convert_scores_to_int(students_rec)
-    assignments = seperate_assignments(students_rec)
-    quizzes = seperate_quizzes(students_rec)
+    assignments = seperate_scores(students_rec, "assignments")
+    quizzes = seperate_scores(students_rec, "quizzes")
     final_exam = compile_final_exam(students_rec)
 
     for i in range(len(assignments)):
-        print()
-        print(f"ASSIGNMENT #{i+1}")
-        display_average(assignments[f"assignment_{i+1}"])
-        display_min_max(assignments[f"assignment_{i+1}"])
+        print(f"\nASSIGNMENT #{i+1}")
+        display_average(assignments[f"score_{i+1}"])
+        display_min_max(assignments[f"score_{i+1}"])
 
     for i in range(len(quizzes)):
-        print()
-        print(f"QUIZ #{i+1}")
-        display_average(quizzes[f"quizzes_{i+1}"])
-        display_min_max(quizzes[f"quizzes_{i+1}"])
+        print(f"\nQUIZ #{i+1}")
+        display_average(quizzes[f"score_{i+1}"])
+        display_min_max(quizzes[f"score_{i+1}"])
 
     print()
     print("FINAL EXAM")
     display_average(final_exam)
     display_min_max(final_exam)
+    
+    
+         
 
+
+
+
+if __name__ == "__main__":
+    main()
