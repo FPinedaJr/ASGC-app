@@ -73,3 +73,11 @@ def compile_final_exam(students):
         final_exam.append(students[f"student_{i+1}"]["final_exam"])
 
     return final_exam
+
+
+def display_average(arr): 
+    sum_of_list = 0 
+    for i in range(len(arr)): 
+        sum_of_list += arr[i]
+    average_student = sum_of_list/len(arr)
+    print("     class average : ", round(average_student, 2))
