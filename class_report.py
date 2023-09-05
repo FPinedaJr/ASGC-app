@@ -96,4 +96,27 @@ def display_min_max(arr):
     print("     highest score: ", max)
 
 
-    
+def main():
+    students_rec = get_scores()
+    students_rec = convert_scores_to_int(students_rec)
+    assignments = seperate_assignments(students_rec)
+    quizzes = seperate_quizzes(students_rec)
+    final_exam = compile_final_exam(students_rec)
+
+    for i in range(len(assignments)):
+        print()
+        print(f"ASSIGNMENT #{i+1}")
+        display_average(assignments[f"assignment_{i+1}"])
+        display_min_max(assignments[f"assignment_{i+1}"])
+
+    for i in range(len(quizzes)):
+        print()
+        print(f"QUIZ #{i+1}")
+        display_average(quizzes[f"quizzes_{i+1}"])
+        display_min_max(quizzes[f"quizzes_{i+1}"])
+
+    print()
+    print("FINAL EXAM")
+    display_average(final_exam)
+    display_min_max(final_exam)
+
