@@ -48,6 +48,15 @@ def convert_scores_to_int(students: dict) -> dict:
 
 
 def seperate_scores(students: dict, type: str) -> dict:
+    """
+    Seperate the scores of the students
+
+    Args:
+        students [dict] 
+
+    Return
+        scores [dict]
+    """
     num_of_scores = len(students[f"student_1"][type])
     num_of_students = len(students)
 
