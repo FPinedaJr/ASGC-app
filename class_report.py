@@ -74,6 +74,15 @@ def seperate_scores(students: dict, type: str) -> dict:
 
 
 def compile_final_exam(students: dict) -> list:
+    """
+    Compile the final exam of the students 
+
+    Args:
+        students [dict] 
+
+    Return
+        final exam [list] 
+    """
     final_exam = []
 
     for i in range(len(students)):
