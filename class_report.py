@@ -63,3 +63,13 @@ def seperate_quizzes(students):
             quizzes[f"quizzes_{i+1}"].append(students[f"student_{j+1}"]["quizzes"][i])
     
     return quizzes
+
+
+
+def compile_final_exam(students):
+    final_exam = []
+
+    for i in range(len(students)):
+        final_exam.append(students[f"student_{i+1}"]["final_exam"])
+
+    return final_exam
