@@ -47,3 +47,19 @@ def seperate_assignments(students):
             assignments[f"assignment_{i+1}"].append(students[f"student_{j+1}"]["assignments"][i])
     
     return assignments
+
+
+def seperate_quizzes(students):
+    quizzes = {
+        "quizzes_1": [],
+        "quizzes_2": [],
+        "quizzes_3": [],
+        "quizzes_4": [],
+        "quizzes_5": [],
+    }
+
+    for j in range(5):
+        for i in range(len(students[f"student_{j+1}"]["quizzes"])):
+            quizzes[f"quizzes_{i+1}"].append(students[f"student_{j+1}"]["quizzes"][i])
+    
+    return quizzes
