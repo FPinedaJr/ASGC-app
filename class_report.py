@@ -94,6 +94,12 @@ def compile_final_exam(students: dict) -> list:
 
 
 def display_average(scores: list): 
+    """
+    Display the average of the students 
+
+    Args:
+        scores [list] 
+    """
     sum_of_list = 0 
     for i in range(len(scores)): 
         sum_of_list += scores[i]
