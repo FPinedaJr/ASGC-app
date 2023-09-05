@@ -110,6 +110,12 @@ def display_average(scores: list):
 
 
 def display_min_max(scores: list):
+    """
+    Display the minimum and maximum score of the class 
+
+    Args:
+        scores [list]  
+    """
     min = scores[0]
     max = scores[0]
     for i in range(len(scores)): 
