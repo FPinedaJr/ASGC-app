@@ -81,3 +81,13 @@ def display_average(arr):
         sum_of_list += arr[i]
     average_student = sum_of_list/len(arr)
     print("     class average : ", round(average_student, 2))
+
+
+def display_min_max(arr):
+    min = arr [0]
+    max = arr [0]
+    for i in range(len(arr)): 
+        if arr[i] > max: 
+            max = arr [i]
+        elif arr [i] < min: 
+            min = arr [i]
