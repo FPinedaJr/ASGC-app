@@ -19,7 +19,7 @@ def get_scores(num_of_students: int) -> list:
         students[i]["final_exam"] = int(input(f"FINAL EXAM score of student {i+1}: "))
         print("\n")
     
-    print(students)
+    
     return students
 
 
