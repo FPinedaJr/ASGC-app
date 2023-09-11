@@ -1,4 +1,4 @@
-def get_scores(num_of_students: int) -> dict:
+def get_scores(num_of_students: int) -> list:
     """
     Take the ASSIGNMENT, QUIZ, FINAL EXAM of students 
 
@@ -9,22 +9,23 @@ def get_scores(num_of_students: int) -> dict:
         students record [dict]
     """
     print("-----PLEASE SEPERATE BY A COMMA-----")
-    students = {}
+    students = []
     for i in range(num_of_students):
-        students[f"student_{i+1}"] = {}
+        students.append({})
 
     for i in range(num_of_students):
-        students[f"student_{i+1}"]["assignments"] = input(f"ASSIGNMENT score of student {i+1}: ").split(',')
-        students[f"student_{i+1}"]["quizzes"] = input(f"      QUIZ score of student {i+1}: ").split(',')
-        students[f"student_{i+1}"]["final_exam"] = int(input(f"FINAL EXAM score of student {i+1}: "))
+        students[i]["assignments"] = input(f"ASSIGNMENT score of student {i+1}: ").split(',')
+        students[i]["quizzes"] = input(f"      QUIZ score of student {i+1}: ").split(',')
+        students[i]["final_exam"] = int(input(f"FINAL EXAM score of student {i+1}: "))
         print("\n")
     
+    print(students)
     return students
 
 
 
 
-def convert_scores_to_int(students: dict) -> dict:
+def convert_scores_to_int(students: list) -> list:
     """
     Convert the scores of the students to integer
 
@@ -36,18 +37,18 @@ def convert_scores_to_int(students: dict) -> dict:
     """
     num_of_students = len(students)
     for j in range(num_of_students):
-        for i in range(len(students[f"student_{j+1}"]["assignments"])):
-            students[f"student_{j+1}"]["assignments"][i] = int(students[f"student_{j+1}"]["assignments"][i])
+        for i in range(len(students[j]["assignments"])):
+            students[j]["assignments"][i] = int(students[j]["assignments"][i])
 
-        for i in range(len(students[f"student_{j+1}"]["quizzes"])):
-            students[f"student_{j+1}"]["quizzes"][i] = int(students[f"student_{j+1}"]["quizzes"][i])
+        for i in range(len(students[j]["quizzes"])):
+            students[j]["quizzes"][i] = int(students[j]["quizzes"][i])
 
     return students
 
 
 
 
-def seperate_scores(students: dict, type: str) -> dict:
+def seperate_scores(students: list, type: str) -> list:
     """
     Seperate the scores of the students
 
@@ -57,7 +58,7 @@ def seperate_scores(students: dict, type: str) -> dict:
     Return
         scores [dict]
     """
-    num_of_scores = len(students[f"student_1"][type])
+    num_of_scores = len(students[0][type])
     num_of_students = len(students)
 
     scores = {}
@@ -65,15 +66,15 @@ def seperate_scores(students: dict, type: str) -> dict:
         scores[f"score_{i+1}"] = []
 
     for j in range(num_of_students):
-        for i in range(len(students[f"student_{j+1}"][type])):
-            scores[f"score_{i+1}"].append(students[f"student_{j+1}"][type][i])
+        for i in range(len(students[j][type])):
+            scores[f"score_{i+1}"].append(students[j][type][i])
     
     return scores
 
 
 
 
-def compile_final_exam(students: dict) -> list:
+def compile_final_exam(students: list) -> list:
     """
     Compile the final exam of the students 
 
@@ -86,7 +87,7 @@ def compile_final_exam(students: dict) -> list:
     final_exam = []
 
     for i in range(len(students)):
-        final_exam.append(students[f"student_{i+1}"]["final_exam"])
+        final_exam.append(students[i]["final_exam"])
 
     return final_exam
 
