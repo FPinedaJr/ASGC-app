@@ -6,7 +6,7 @@ def get_scores(num_of_students: int) -> list:
         number of students [int]
 
     Return
-        students record [dict]
+        students record [list]
     """
     print("-----PLEASE SEPERATE BY A COMMA-----")
     students = []
@@ -30,10 +30,10 @@ def convert_scores_to_int(students: list) -> list:
     Convert the scores of the students to integer
 
     Args:
-        students [dict] -> str
+        students [list] -> str
 
     Return
-        students [dict] -> int
+        students [list] -> int
     """
     num_of_students = len(students)
     for j in range(num_of_students):
@@ -48,12 +48,12 @@ def convert_scores_to_int(students: list) -> list:
 
 
 
-def seperate_scores(students: list, type: str) -> list:
+def seperate_scores(students: list, type: str) -> dict:
     """
     Seperate the scores of the students
 
     Args:
-        students [dict] 
+        students [list] 
 
     Return
         scores [dict]
@@ -79,7 +79,7 @@ def compile_final_exam(students: list) -> list:
     Compile the final exam of the students 
 
     Args:
-        students [dict] 
+        students [list] 
 
     Return
         final exam [list] 
@@ -94,12 +94,12 @@ def compile_final_exam(students: list) -> list:
 
 
 
-def display_average(scores: list): 
+def display_average(scores: dict): 
     """
     Display the average of the students 
 
     Args:
-        scores [list] 
+        scores [dict] 
     """
     sum_of_list = 0 
     for i in range(len(scores)): 
@@ -110,12 +110,12 @@ def display_average(scores: list):
 
 
 
-def display_min_max(scores: list):
+def display_min_max(scores: dict):
     """
     Display the minimum and maximum score of the class 
 
     Args:
-        scores [list]  
+        scores [dict]  
     """
     min = scores[0]
     max = scores[0]
